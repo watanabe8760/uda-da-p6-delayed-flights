@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://dimplejs.org/dist/dimple.v2.2.0.min.js"></script>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      div.buttons {
+        position: relative;
+        left: 30px;
+      }
+      button {
+        display: inline;
+        cursor: pointer;
+        color: black;
+        background-color: white;
+        border: 1.5px solid black;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        padding: 10px 10px;
+        border-radius: 2px;
+        margin: 4px;
+        transition-duration: 0.4s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/javascript">
+      "use strict";
+      var width_margin = 180,
+          height_margin = 40,
+          width = 1060 - width_margin,
+          height = 480 - height_margin;
+      
+      function draw(data) {
+        // Title
+        d3.select("div")
+          .append("h2")
+          .text("　Percentage of Delayed Flights in 2015");
+          
+        // Canvas
+        var svg = dimple.newSvg("#container", width, height);
+        
+        // Initial chart
+        var init_year = "2015";
+        var chart = new dimple.chart(svg, dimple.filterData(data, "year", init_year));
+        chart.setBounds(140, 20, width - width_margin, height - height_margin)
+        var x = chart.addMeasureAxis("x", "arr_del15_rate");
+        x.overrideMax = 0.28;
+        x.addOrderRule("arr_del15_rate");
+        x.title = null;
+        x.tickFormat = "%%";
+        x.fontSize = 14;
+        var y = chart.addCategoryAxis("y", "carrier_name");
+        y.title = null;
+        y.fontSize = 14;
+        var s = chart.addSeries(null, dimple.plot.bar);
+        s.getTooltipText = function (e) {
+          return null;
+        }
+        chart.draw();
+        
+        function update(year) {
+          d3.select("h2")
+            .text("　Percentage of Delayed Flights in " + year);
+           
+           chart.data.forEach(function(d) { d.Value = 0; });
+           s.afterDraw = function() {
+               chart.data = dimple.filterData(data, "year", year);
+               chart.draw(1000);
+           }
+           chart.draw(200);
+        }
+        
+        // Years buttons
+        var years = dimple.getUniqueValues(data, "year");
+        years.sort();
+        d3.select("body")
+          .append("div")
+          .attr("class", "buttons")
+          .selectAll("div")
+          .data(years)
+          .enter()
+          .append("button")
+          .attr("id", function (d) { return "Y" + d; })
+          .text(function(d) { return d; })
+          .on("click", function() {
+            // Return color of all buttons
+            d3.selectAll("button")
+              .transition()
+              .duration(500)
+              .style("color", "black")
+              .style("background", "white");
+            // Highlight the button chosen
+            d3.select(this)
+              .transition()
+              .duration(500)
+              .style("color", "white")
+              .style("background", "#008CBA");
+            // Recover color of "Show History" button
+            d3.select("#History")
+              .transition()
+              .style("background", "#4CAF50");
+            // Update chart
+            update(d3.select(this).text());
+          });
+        
+        // Set a color for initial selected button
+        d3.select("#Y" + init_year)
+          .style("color", "white")
+          .style("background", "#008CBA");
+          
+        // "Show History" button
+        d3.select("body")
+          .append("div")
+          .attr("class", "buttons")
+          .append("button")
+          .attr("id", "History")
+          .text("Show History >>")
+          .style("background", "#4CAF50")
+          .on("click", function() {
+            
+          });
+      }
+      
+      d3.csv("./data/airline_delay_causes_aggregated_final.csv", function(data) { draw(data) });
+    </script>
+  </body>
+</html>

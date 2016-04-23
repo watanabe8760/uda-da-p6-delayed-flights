@@ -1,0 +1,134 @@
+"year","carrier_name","arr_flights","arr_del15","arr_del15_rate"
+2003,"Alaska Airlines",98735,18097,18.3
+2003,"American Airlines",434707,81756,18.8
+2003,"Delta Air Lines",386319,68346,17.7
+2003,"ExpressJet Airlines",199362,38642,19.4
+2003,"Hawaiian Airlines",7831,684,8.7
+2003,"JetBlue Airways",40741,5443,13.4
+2003,"SkyWest Airlines",240401,26497,11
+2003,"Southwest Airlines",562675,73653,13.1
+2003,"United Air Lines",320081,55572,17.4
+2004,"Alaska Airlines",166992,35118,21
+2004,"American Airlines",698548,148150,21.2
+2004,"Delta Air Lines",687638,151942,22.1
+2004,"ExpressJet Airlines",367703,77652,21.1
+2004,"Hawaiian Airlines",48077,2767,5.8
+2004,"JetBlue Airways",89834,15672,17.4
+2004,"SkyWest Airlines",463448,69597,15
+2004,"Southwest Airlines",990404,185595,18.7
+2004,"United Air Lines",555812,105032,18.9
+2005,"Alaska Airlines",158100,44766,28.3
+2005,"American Airlines",673569,144389,21.4
+2005,"Delta Air Lines",658302,137098,20.8
+2005,"ExpressJet Airlines",403767,88656,22
+2005,"Frontier Airlines",53255,9154,17.2
+2005,"Hawaiian Airlines",48183,2277,4.7
+2005,"JetBlue Airways",111049,30430,27.4
+2005,"SkyWest Airlines",517454,80313,15.5
+2005,"Southwest Airlines",1036034,189099,18.3
+2005,"United Air Lines",485918,101429,20.9
+2006,"Alaska Airlines",159404,39671,24.9
+2006,"American Airlines",643597,145563,22.6
+2006,"Delta Air Lines",506086,111152,22
+2006,"ExpressJet Airlines",441470,106286,24.1
+2006,"Frontier Airlines",90181,16404,18.2
+2006,"Hawaiian Airlines",52173,2999,5.7
+2006,"JetBlue Airways",155732,40738,26.2
+2006,"SkyWest Airlines",548109,113760,20.8
+2006,"Southwest Airlines",1099321,206597,18.8
+2006,"United Air Lines",500008,119391,23.9
+2007,"Alaska Airlines",160185,41181,25.7
+2007,"American Airlines",633857,178129,28.1
+2007,"Delta Air Lines",475889,102404,21.5
+2007,"ExpressJet Airlines",434773,101558,23.4
+2007,"Frontier Airlines",97760,21380,21.9
+2007,"Hawaiian Airlines",56175,3531,6.3
+2007,"JetBlue Airways",191450,52907,27.6
+2007,"SkyWest Airlines",597880,130405,21.8
+2007,"Southwest Airlines",1168871,220441,18.9
+2007,"United Air Lines",490002,132461,27
+2008,"Alaska Airlines",151102,30190,20
+2008,"American Airlines",604883,163024,27
+2008,"Delta Air Lines",451931,98840,21.9
+2008,"ExpressJet Airlines",374510,87883,23.5
+2008,"Frontier Airlines",95762,19748,20.6
+2008,"Hawaiian Airlines",61826,5589,9
+2008,"JetBlue Airways",196091,49223,25.1
+2008,"SkyWest Airlines",567141,105245,18.6
+2008,"Southwest Airlines",1201754,219757,18.3
+2008,"United Air Lines",449515,116072,25.8
+2009,"Alaska Airlines",137322,21845,15.9
+2009,"American Airlines",551597,114591,20.8
+2009,"Delta Air Lines",428007,85948,20.1
+2009,"ExpressJet Airlines",310717,59558,19.2
+2009,"Frontier Airlines",86989,18228,21
+2009,"Hawaiian Airlines",72920,5581,7.7
+2009,"JetBlue Airways",194336,40684,20.9
+2009,"SkyWest Airlines",547571,88827,16.2
+2009,"Southwest Airlines",1132278,181988,16.1
+2009,"United Air Lines",377048,64577,17.1
+2010,"Alaska Airlines",136950,15861,11.6
+2010,"American Airlines",540963,99108,18.3
+2010,"Delta Air Lines",732972,149425,20.4
+2010,"ExpressJet Airlines",385077,76419,19.8
+2010,"Frontier Airlines",81966,14717,18
+2010,"Hawaiian Airlines",67649,4972,7.3
+2010,"JetBlue Airways",201434,44368,22
+2010,"SkyWest Airlines",599620,111931,18.7
+2010,"Southwest Airlines",1124487,217213,19.3
+2010,"United Air Lines",343081,45154,13.2
+2011,"Alaska Airlines",143726,15615,10.9
+2011,"American Airlines",538179,103978,19.3
+2011,"Delta Air Lines",732331,118041,16.1
+2011,"ExpressJet Airlines",413283,89303,21.6
+2011,"Frontier Airlines",85485,17079,20
+2011,"Hawaiian Airlines",66740,4650,7
+2011,"JetBlue Airways",215970,53039,24.6
+2011,"SkyWest Airlines",587372,107213,18.3
+2011,"Southwest Airlines",1155717,201394,17.4
+2011,"United Air Lines",311212,56255,18.1
+2012,"Alaska Airlines",147569,16779,11.4
+2012,"American Airlines",525220,109752,20.9
+2012,"Delta Air Lines",726879,92829,12.8
+2012,"ExpressJet Airlines",740855,154116,20.8
+2012,"Frontier Airlines",79255,17122,21.6
+2012,"Hawaiian Airlines",74109,4798,6.5
+2012,"JetBlue Airways",229056,44965,19.6
+2012,"SkyWest Airlines",617756,101231,16.4
+2012,"Southwest Airlines",1140535,180969,15.9
+2012,"United Air Lines",531245,111579,21
+2012,"Virgin America",54742,8699,15.9
+2013,"Alaska Airlines",154743,18796,12.1
+2013,"American Airlines",537891,108865,20.2
+2013,"Delta Air Lines",754670,113157,15
+2013,"ExpressJet Airlines",748695,180484,24.1
+2013,"Frontier Airlines",75612,19950,26.4
+2013,"Hawaiian Airlines",72286,4712,6.5
+2013,"JetBlue Airways",241777,59176,24.5
+2013,"SkyWest Airlines",626359,111864,17.9
+2013,"Southwest Airlines",1130704,252944,22.4
+2013,"United Air Lines",505798,98754,19.5
+2013,"Virgin America",57133,9892,17.3
+2014,"Alaska Airlines",160257,20975,13.1
+2014,"American Airlines",537697,119751,22.3
+2014,"Delta Air Lines",800375,122489,15.3
+2014,"ExpressJet Airlines",686021,164412,24
+2014,"Frontier Airlines",85474,21654,25.3
+2014,"Hawaiian Airlines",74732,5826,7.8
+2014,"JetBlue Airways",249693,54594,21.9
+2014,"SkyWest Airlines",613029,125024,20.4
+2014,"Southwest Airlines",1174633,299133,25.5
+2014,"United Air Lines",493528,109965,22.3
+2014,"Virgin America",57510,10199,17.7
+2015,"Alaska Airlines",172521,22352,13
+2015,"American Airlines",725984,130279,17.9
+2015,"Delta Air Lines",875881,118023,13.5
+2015,"ExpressJet Airlines",571977,109184,19.1
+2015,"Frontier Airlines",90836,23570,25.9
+2015,"Hawaiian Airlines",76272,8618,11.3
+2015,"JetBlue Airways",267048,59175,22.2
+2015,"SkyWest Airlines",588352,107795,18.3
+2015,"Southwest Airlines",1261855,236626,18.8
+2015,"Spirit Air Lines",117379,34221,29.2
+2015,"United Air Lines",515723,104722,20.3
+2015,"Virgin America",61903,11778,19
