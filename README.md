@@ -4,7 +4,7 @@ http://bl.ocks.org/watanabe8760/1a0de27919ab73084736299e53f73349
 
 ## Summary
 
-Do you like to delay when you fly? If not, take a look at the graph and check which airline is more likely to delay. You will notice that three airlines, Hawaiian, Alaska and Delta have outstanding performance in recent years. Maybe Delta is the best if its diverse destination is taken into consideration.
+Do you like to delay when you fly? If not, take a look at the graph and check which airline is more likely to delay. You will notice that three airlines, Hawaiian, Alaska and Delta have outstanding performance in recent years. Maybe Delta is the best if its diverse destinations are taken into consideration.
 
 
 ## Data
