@@ -30,7 +30,9 @@ After receiving feedback about notations on X/Y axes from Reviewer A and B (plea
 
 In *index_3.html* a line graph which Reviewer C mentioned has been implemented. This graph enables us to see the changes over time more easily. Thinking of a combination with the bar chart previously created, "Go Back to Per Year" button was added though, the functionality is not implemented.
 
-As the final visualization, the bar chart in *index_2.html* and the line chart in *index_3.html* were combined. Now "Show History" button and "Go Back to Per Year" button work as expected so that readers can go back and forth between two charts.
+The bar chart and the line chart were combined in *index_4.html*. Now "Show History" button and "Go Back to Per Year" button work as expected so that readers can go back and forth between two charts.
+
+As the final visualization, after receiving feedback from Reviewer D, *index_final.html* focuses only on the line chart to tell a story that Delta is the best airlines to be chosen when its broad range of destination is taken into consideration. To emphasize the story the title changed accordingly and some explanation was added at the bottom. Also to make the interactive functionality clear, "Click" annotation was added. As opposed to the comment of Reviewer B, Reviewer D suggested to put x/y axis labels for clear communication so I added them in a simple manner.
 
 
 ## Feedback
@@ -43,6 +45,12 @@ It would be better to remove X axis title and added % sign to x axis tick labels
 
 Reviewer C:  
 It would be better to use a line graph with the years on the X axis, percent delayed on the Y axis, and the various airlines each represented by their own line. This way, you could easily compare the trends for each airline and see whether a single airline dominates over the date range, or whether "leadership" in delayed flights changes over time.
+
+Reviewer D:  
+1. Visualization doesn't have a specific explanatory story and chart title can aid in telling the explanatory story.
+2. There could be a note on the chart letting the chart reader know what functionality the chart has.
+3. Chart could have a note about where the data came from as well as what "delayed flights" refers to.
+4. x and y axes should be labeled for clear communication.
 
 
 ## Recources
@@ -62,3 +70,6 @@ It would be better to use a line graph with the years on the X axis, percent del
 * CSS Selector Reference - http://www.w3schools.com/cssref/css_selectors.asp
 * CSS Buttons - http://www.w3schools.com/css/css3_buttons.asp
 * HTML Event Attributes - http://www.w3schools.com/tags/ref_eventattributes.asp
+* WHERE WE FLY, Hawaiian Airlines - https://www.hawaiianairlines.com/destinations
+* Alaska Airlines Network - http://flyingbettertogether.com/
+* Delta US Route Map - http://www.delta.com/content/dam/delta-www/pdfs/route-maps/us-route-map.pdf

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://dimplejs.org/dist/dimple.v2.2.0.min.js"></script>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      div.buttons {
+        position: relative;
+        left: 30px;
+      }
+      button {
+        display: inline;
+        cursor: pointer;
+        color: black;
+        background-color: white;
+        border: 1.5px solid black;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        padding: 10px 10px;
+        border-radius: 2px;
+        margin: 4px;
+        transition-duration: 0.4s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/javascript">
+      "use strict";
+      // Main specification of visualization
+      var width_margin = 180,
+          height_margin = 40,
+          width = 1060 - width_margin,
+          height = 480 - height_margin,
+          x_start = 140,
+          y_start = 20;
+      // Title
+      d3.select("div")
+        .append("h2")
+        .text("　Percentage of Delayed Flights in 2015");
+      // Canvas
+      var svg = dimple.newSvg("#container", width, height);
+      
+      function draw(data) {
+        // Title
+        d3.select("h2")
+          .text("　Percentage of Delayed Flights in 2015");
+        // Draw bar chart
+        var init_year = "2015";
+        var chart = new dimple.chart(svg, dimple.filterData(data, "year", init_year));
+        chart.setBounds(x_start, y_start, width - width_margin, height - height_margin)
+        var x = chart.addMeasureAxis("x", "arr_del15_rate");
+        x.overrideMax = 0.28;
+        x.addOrderRule("arr_del15_rate");
+        x.title = null;
+        x.tickFormat = "%%";
+        x.fontSize = 14;
+        var y = chart.addCategoryAxis("y", "carrier_name");
+        y.title = null;
+        y.fontSize = 14;
+        var s = chart.addSeries(null, dimple.plot.bar);
+        s.getTooltipText = function (e) {
+          return null;
+        }
+        chart.draw(500);
+        
+        function update(year) {
+          d3.select("h2")
+            .text("　Percentage of Delayed Flights in " + year);
+           
+           chart.data.forEach(function(d) { d.Value = 0; });
+           s.afterDraw = function() {
+               chart.data = dimple.filterData(data, "year", year);
+               chart.draw(1000);
+           }
+           chart.draw(200);
+        }
+        
+        // Years buttons
+        var years = dimple.getUniqueValues(data, "year");
+        years.sort();
+        d3.select("body")
+          .append("div")
+          .attr("class", "buttons")
+          .selectAll("div")
+          .data(years)
+          .enter()
+          .append("button")
+          .attr("id", function (d) { return "Y" + d; })
+          .text(function(d) { return d; })
+          .on("click", function() {
+            // Return color of all buttons
+            d3.selectAll("button")
+              .transition()
+              .duration(500)
+              .style("color", "black")
+              .style("background", "white");
+            // Highlight the button chosen
+            d3.select(this)
+              .transition()
+              .duration(500)
+              .style("color", "white")
+              .style("background", "#008CBA");
+            // Recover color of "Show History" button
+            d3.select("#History")
+              .transition()
+              .style("background", "#4CAF50");
+            // Update chart
+            update(d3.select(this).text());
+          });
+        
+        // Set a color for initial selected button
+        d3.select("#Y" + init_year)
+          .style("color", "white")
+          .style("background", "#008CBA");
+        
+        // "Show History" button
+        d3.select("body")
+          .append("div")
+          .attr("class", "buttons")
+          .append("button")
+          .attr("id", "History")
+          .text("Show History >>")
+          .style("background", "#4CAF50")
+          .on("click", function() {
+            chart.svg.selectAll("*").remove();
+            d3.selectAll(".buttons").remove();
+            showHistory();
+          });
+        
+        // Line chart
+        function showHistory() {
+          // Title
+          d3.select("h2")
+            .text("　Percentage of Delayed Flights");
+            
+          // Line chart for historical change
+          var chart = new dimple.chart(svg, data);
+          chart.setBounds(x_start, y_start, width - width_margin, height - height_margin)
+          var x = chart.addTimeAxis("x", "year", "%Y", "%Y");
+          x.title = null;
+          x.fontSize = 14;
+          x.overrideMin = d3.time.format("%Y%m").parse("200207");
+          x.overrideMax = d3.time.format("%Y%m").parse("201506");
+          var y = chart.addMeasureAxis("y", "arr_del15_rate");
+          y.title = null;
+          y.tickFormat = "%%";
+          y.fontSize = 14;
+          y.overrideMax = 0.28;
+          y.showGridlines = true;
+          var s1 = chart.addSeries("carrier_name", dimple.plot.line);
+          s1.getTooltipText = function (e) { return null; }
+          var s2 = chart.addSeries("carrier_name", dimple.plot.point);
+          s2.getTooltipText = function (e) { return [e.aggField[0]]; }
+          chart.draw(500);
+          
+          // Airline buttons
+          var airlines = dimple.getUniqueValues(data, "carrier_name");
+          var colors = d3.map(
+            [{airline: "Alaska", fill: "rgb(255, 255, 179)", stroke: "rgb(213, 213, 149)"},
+             {airline: "American", fill: "rgb(253, 180, 98)", stroke: "rgb(211, 150, 81)"},
+             {airline: "Delta", fill: "rgb(188, 128, 189)", stroke: "rgb(157, 107, 158)"},
+             {airline: "ExpressJet", fill: "rgb(251, 128, 114)", stroke: "rgb(210, 107, 95)"},
+             {airline: "Hawaiian", fill: "rgb(190, 186, 218)", stroke: "rgb(158, 155, 182)"},
+             {airline: "JetBlue", fill: "rgb(128, 177, 211)", stroke: "rgb(107, 148, 176)"},
+             {airline: "SkyWest", fill: "rgb(204, 235, 197)", stroke: "rgb(170, 196, 164)"},
+             {airline: "Southwest", fill: "rgb(255, 237, 111)", stroke: "rgb(213, 198, 92)"},
+             {airline: "United", fill: "rgb(179, 222, 105)", stroke: "rgb(149, 185, 87)"},
+             {airline: "Frontier", fill: "rgb(141, 211, 199)", stroke: "rgb(117, 176, 166)"},
+             {airline: "Virgin America", fill: "rgb(252, 205, 229)", stroke: "rgb(210, 171, 191)"},
+             {airline: "Spirit", fill: "rgb(217, 217, 217)", stroke: "rgb(181, 181, 181)"}],
+            function(d) { return d.airline; }
+          );
+          var filtered = airlines;
+          d3.select("body")
+            .append("div")
+            .attr("class", "buttons")
+            .selectAll("div")
+            .data(airlines)
+            .enter()
+            .append("button")
+            .attr("id", function (d) { return d; })
+            .text(function(d) { return d; })
+            .style("background", function(d) { return colors.get(d).fill; })
+            .style("border", function(d) { return "2px solid " + colors.get(d).stroke; })
+            .on("click", function(d) {
+              if (filtered.indexOf(d) !== -1) {
+                // Remove the clicked one if filtered list contains it
+                filtered.splice(filtered.indexOf(d), 1);
+                d3.select(this).style("opacity", 0.2);
+              } else {
+                // Add the clicked one if filtered list does not contain it
+                filtered.push(d);
+                d3.select(this).style("opacity", 1.0);
+              }
+              chart.data = dimple.filterData(data, "carrier_name", filtered);
+              chart.draw(500);
+            });
+          
+          // "Go back" button
+          d3.select("body")
+            .append("div")
+            .attr("class", "buttons")
+            .append("button")
+            .attr("id", "Per Year")
+            .text("<< Go Back to Per Year")
+            .style("background", "#e7e7e7")
+            .on("click", function() {
+              chart.svg.selectAll("*").remove();
+              d3.selectAll(".buttons").remove();
+              draw(data);
+            });
+        }
+      }
+      
+      d3.csv("./data/airline_delay_causes_aggregated_final.csv", function(data) { draw(data) });
+    </script>
+  </body>
+</html>
