@@ -33,6 +33,13 @@
         width: 740px;
         padding: 10px;
       }
+      div.end-note {
+        position: relative;
+        left: 80px;
+        width: 740px;
+        padding: 10px;
+        font-size: 12px;
+      }
     </style>
   </head>
   <body>
@@ -206,6 +213,12 @@
                 "If your destination is <a href='https://www.hawaiianairlines.com/destinations'>Hawaii (Hawaiian)</a> or " +
                 "<a href='http://flyingbettertogether.com/'>West coast (Alaska)</a>, yes, you should take them.<BR/>" +
                 "<a href='http://www.delta.com/content/dam/delta-www/pdfs/route-maps/us-route-map.pdf'>Delta offers diverse destinations</a> with its best performance.");
+        // End note
+        d3.select("body")
+          .append("div")
+          .attr("class", "end-note")
+          .html("(*1) Data source - http://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp<BR/>" +
+                "(*2) The term \"delay\" is defined as more than 15 minutes delay from the expected arrival time.");
       }
       
       // Start point

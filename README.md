@@ -4,7 +4,8 @@ http://bl.ocks.org/watanabe8760/1a0de27919ab73084736299e53f73349
 
 ## Summary
 
-Do you like to delay when you fly? If not, take a look at the graph and check which airline is more likely to delay. The graph shows percentage of delayed flights for each airline per year. The term "delay" is defined as more than 15 minutes delay from the expected arrival time.
+Do you like to delay when you fly? If not, take a look at the graph and check which airline is more likely to delay. You will notice that three airlines, Hawaiian, Alaska and Delta have outstanding performance in recent years. Maybe Delta is the best if its diverse destination is taken into consideration.
+
 
 ## Data
 
